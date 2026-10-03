@@ -1,0 +1,58 @@
+/* ----------------------------------------------------------------
+   ACTIVITY 2 · Reverse the Animation
+   The "stage" is the box. The "ball" is the shape that moves.
+   ---------------------------------------------------------------- */
+
+.stage {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  background: #1e293b;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.ball {
+  position: absolute;
+  top: 120px;              /* how far down the ball sits */
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;      /* makes it a circle */
+  background: #f472b6;
+  animation: roll 3s linear infinite;
+}
+
+/* ================================================================
+   THE ANIMATION — this is the part you will change!
+   ----------------------------------------------------------------
+   • "left: 0px"     = the ball at the LEFT edge
+   • "left: 100% ..." = the ball at the RIGHT edge (then back to 80px wide)
+   • 0%  = start of the loop
+   • 100% = end of the loop
+   ================================================================ */
+
+@keyframes roll {
+  0%   { left: 0; }
+  100% { left: calc(100% - 80px); }
+}
+
+/* ----------------------------------------------------------------
+   CHALLENGE: Make the ball go RIGHT to LEFT instead.
+   Pick ONE of these two ways:
+
+   WAY 1 — swap the two values below (and the @keyframes above stays put):
+
+      @keyframes roll {
+        0%   { left: calc(100% - 80px); }
+        100% { left: 0; }
+      }
+
+   WAY 2 — add one line to the .ball rule:
+
+      animation-direction: reverse;
+
+   BONUS CHALLENGES:
+      • Make the ball move faster (change "3s" to "1s").
+      • Change the ball color.
+      • Make the ball a square (change border-radius to 0).
+   ---------------------------------------------------------------- */
